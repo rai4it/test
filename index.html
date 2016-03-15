@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>Insert title here</title>
+
+<link href="style.css" rel="stylesheet">
+<script src="jquery-1.11.0.min.js"></script>
+<script src="script.js"></script>
+</head>
+<body>
+
+	<div id="wrap" class="container-fluid">
+		<div>
+			<div class="col-md-8 col-sm-9 col-xs-12">
+			
+				<form method="POST" action="/issue_upload?issue=1533">
+					<div class="panel panel-primary panel_issue" style="display: block"
+						data-issue="1533" data-archived="0" data-active-version="1">
+						<div class="panel-heading issueDesc collapsed"
+							title="Double click to edit entry" ondblclick="EditIssue(this);"
+							data-toggle="collapse" data-target="#1533">
+							<h3 class="panel-title">
+								<span class="chevron_toggle glyphicon glyphicon-chevron-up"></span>
+								<a href="#!" class="favourite" onclick="SaveFavourite(this)">
+									<span class="glyphicon glyphicon-star-empty text-sapgold"></span>
+								</a> <a class="issueLink 1" href="/Issue/1533">#1533</a> <span
+									class="LastEditBlock pull-right"> <span
+									class="LastEditName">Abdul</span> on <span class="LastEditDate">Friday,
+										04 Mar 2016 12:13:17 CET</span>
+								</span>
+							</h3>
+						</div>
+						<div id="1533" class="panel-collapse desc_id collapse "
+							aria-expanded="false">
+							<div class="panel-body" title="Double click to edit entry"
+								ondblclick="EditIssue(this);">
+								<div class="well Content" style="word-wrap: break-word;"
+									contenteditable="false">
+									<span class="issue_header Description"> 
+									
+									<input type="text" value="ssssssssss" maxlength="64" size="80" class="issueDescText">
+									
+									</span>
+								</div>
+								<div class="FooterButtons pull-right" style="display: none">
+									<input onclick="SaveIssue(this)" type="button"
+										class="btn btn-warning SaveIssue" name="Save" value="Save">
+									<input onclick="CancelIssue(this)" type="button"
+										class="btn btn-warning CancelIssue" name="Cancel"
+										value="Cancel"> <label for="upload1533"
+										class="btn btn-warning issue_uploading">Attach file</label> <input
+										onclick="ToggleArchived(this)" type="button"
+										class="btn btn-danger ArchiveIssue" name="Archive"
+										value="Archive"> <input onclick="ToggleArchived(this)"
+										type="button" class="btn btn-success ReopenIssue"
+										name="Reopen" value="Reopen"> <input id="upload1533"
+										type="file" class="issue_upload" name="upload"
+										onchange="Issue_Upload(this);">
+								</div>
+								<div style="display: none;" class="Sections">
+									<label class="checkbox-pull-right"><input
+										type="checkbox" name="issue_sections[]" value="1" checked=""
+										class="Section">SM/DB </label>&nbsp;
+								</div>
+								<div class="issue_files">
+									<b>Attachments</b>
+									<div hash="mk6f9eF83aDhPXQTo0iEgLYJXGAwnTXKd30niGvmQ9DG6uzvuS">
+										<a href="#"
+											onclick="RemoveAttachment(this, 'mk6f9eF83aDhPXQTo0iEgLYJXGAwnTXKd30niGvmQ9DG6uzvuS')"><span
+											class="glyphicon glyphicon-remove"></span></a> <a
+											href="/attachments/?download=mk6f9eF83aDhPXQTo0iEgLYJXGAwnTXKd30niGvmQ9DG6uzvuS">scratchpad.js</a>
+									</div>
+								</div>
+							</div>
+							<div class="Comment_startpoint">
+								<a data-toggle="collapse"
+									data-target="[data-issue=1533] .comment-area"
+									aria-expanded="false"><span
+									class="glyphicon glyphicon-collapse-up"></span><span
+									class="\&quot;count_comments\&quot;">No</span> comments</a> <a
+									class="hidden-print"
+									style="text-align: left; margin-bottom: 5px;" href="#"
+									onclick="ShowNewCommentBox(this)"><span
+									class="octicon octicon-comment"></span>&nbsp;New Comment</a> <a
+									href="/Issue/1533#comment-area"><span
+									class="octicon octicon-history"></span> 2 versions</a>
+							</div>
+							<div class="comment-area collapse "></div>
+							<div class="panel-footer">
+								<div class="col-sm-13 NewComment" style="display: none">
+									<textarea class="textareaNoResize form-control" name="Comment"
+										placeholder="Write a comment..."></textarea>
+									<input onclick="SaveComment(this)" type="button"
+										class="btn btn-xs btn-warning" value="Save Comment">
+								</div>
+							</div>
+						</div>
+					</div>
+				</form>
+
+			</div>
+		</div>
+	</div>
+
+
+
+
+
+<br>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</body>
+</html>
