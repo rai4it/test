@@ -658,6 +658,10 @@ $(document).ready(
 			//.on('dblclick', '.issueDesc, .desc_id>.panel-body', EditIssue)//php code later
 			//.on('dblclick', '.issueDesc, .desc_id>.panel-body', EditDenied)//php code later
 			
+			
+			
+
+			
 			.on('click', 'a[data-version]', LoadEntryData)//php code later
 			
 			.on('change', '.issue_upload', Issue_Upload)

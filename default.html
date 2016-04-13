@@ -41,258 +41,77 @@
 <body data-spy="scroll" data-target="#dynamic-bar"
 	data-infinite-scrolling="1">
 
-	<div class="navbar navbar-default navbar-inverse" role="navigation">
-		<div class="container-fluid">
-			<div class="navbar-header">
-				<button type="button" class="navbar-toggle collapsed"
-					data-toggle="collapse" data-target="#navbar" aria-expanded="false"
-					aria-controls="navbar">
-					<span class="sr-only">Toggle navigation</span> <span
-						class="icon-bar"></span> <span class="icon-bar"></span> <span
-						class="icon-bar"></span>
-				</button>
-				<!-- Logo  -->
-				<a class="navbar-brand" href="/"><img src="/images/sap.png"
-					alt="logo" width="52px" height="26px"
-					title="heads/automatically_archive_#304-0-gf45b5ae
- f45b5ae78e8621dfcf1ce4dad709a85f82f266d2">Hive
-				</a>
-			</div>
+	<br>
+	<br>
+	<br>
+	<br>
 
-			<div id="navbar" class="navbar-collapse collapse">
-				<form id="navbar-search" class="navbar-form navbar-right"
-					role="search" action="/Search">
-					<div class="input-group">
-						<input type="text" class="form-control" placeholder="Search"
-							name="q" value=""> <span class="input-group-btn">
-							<button type="submit" class="btn btn-default">
-								<span class="glyphicon glyphicon-search"></span>
-							</button>
-						</span>
-					</div>
-				</form>
-				<ul class="nav navbar-nav navbar-right">
-					<li><a href="/Admin" data-toggle="tooltip"
-						title="Admin settings"> <span
-							class="glyphicon glyphicon-globe"></span> <span
-							class="hidden-sm visible-xs-inline">Admin Panel</span>
-					</a></li>
-					<li><a href="/User" data-toggle="tooltip"
-						title="User settings"> <span class="glyphicon glyphicon-cog"></span>
-							<span class="hidden-sm visible-xs-inline">Settings</span>
-					</a></li>
-					<li><a href="/Howto" data-toggle="tooltip" title="Howto">
-							<span class="glyphicon glyphicon-question-sign"></span> <span
-							class="hidden-sm visible-xs-inline">Howto</span>
-					</a></li>
-					<li><a href="/Bug" data-toggle="tooltip" title="Report bug">
-							<span class="glyphicon glyphicon-hand-up"></span> <span
-							class="hidden-sm visible-xs-inline">Report Bug</span>
-					</a></li>
-				</ul>
+	<table class="table table-hover">
+		<thead>
+			<tr>
+				<th rowspan="2">Section</th>
+				<th style="text-align: center;">Read</th>
+				<th style="text-align: center;">Write</th>
+				<th style="text-align: center;">Read</th>
+			</tr>
+		</thead>
+		<tbody>
+			<tr id="SMDB">
+				<th>SMDB</th>
+				<td style="text-align: center;"><input
+					name="User_rights_read[1]" type="checkbox"></td>
+				<td style="text-align: center;"><input
+					name="User_rights_write[1]" type="checkbox"></td>
+				<td style="text-align: center;"><input
+					name="User_rights_read_all[1]" type="checkbox"></td>
+			</tr>
+			<tr id="Basis">
+				<th>Basis</th>
+				<td style="text-align: center;"><input
+					name="User_rights_read[2]" type="checkbox"></td>
+				<td style="text-align: center;"><input
+					name="User_rights_write[2]" type="checkbox"></td>
+				<td style="text-align: center;"><input
+					name="User_rights_read_all[2]" type="checkbox"></td>
+			</tr>
+		</tbody>
+	</table>
+
+	<br>
+	<br>
+	<br>
+	<br>
+
+	<div class="form-group">
+		<label for="Notifications" class="col-sm-3 control-label">Notifications</label>
+		<div class="col-sm-9">
+			<div class="input-group">
+				<table id="Notifications" class="table table-hover">
+
+					<thead>
+						<tr>
+							<th rowspan="2">Section</th>
+							<th style="text-align: center;">Read</th>
+							<th style="text-align: center;">Write</th>
+							<th style="text-align: center;">Read</th>
+						</tr>
+					</thead>
+					<tbody>
+						<tr id="SMDB">
+							<th>SMDB</th>
+							<td style="text-align: center;"><input
+								name="User_rights_read[1]" type="checkbox"></td>
+							<td style="text-align: center;"><input
+								name="User_rights_write[1]" type="checkbox"></td>
+							<td style="text-align: center;"><input
+								name="User_rights_read_all[1]" type="checkbox"></td>
+						</tr>
+					</tbody>
+				</table>
 			</div>
 		</div>
 	</div>
-	<hr class="linie">
-	<div id="wrap" class="container-fluid">
-		<div>
-			<div class="col-lg-2 col-sm-3 col-xs-12">
-				<a class="btn btn-block btn-lg btn-success hidden-print"
-					style="text-align: left; margin-bottom: 5px;" id="new_issue"
-					href="#"><span class="glyphicon glyphicon-pencil"></span>&nbsp;New
-					Entry</a>
-				<div class="panel-group hidden-print" id="accordion">
-					<div class="panel panel-default panel-section">
-						<div class="panel-heading" data-toggle="collapse"
-							data-target=".panel-section .collapse" aria-expanded="true">
-							<h4 class="panel-title">
-								<span class="glyphicon glyphicon-list-alt a-section"></span>
-								Sections
-							</h4>
-						</div>
-						<div class="panel-collapse collapse in" data-parent="#accordion">
-							<div class="panel-body">
-								<ul class="nav nav-pills nav-stacked" id="sidebar-sections">
-									<li class="active" role="presentation"><a
-										href="/Section/SM%2FDB"><span class="badge pull-right">476</span><span
-											class="glyphicon glyphicon-list"></span> SM/DB</a></li>
-								</ul>
-							</div>
-						</div>
-					</div>
-					<div class="panel  panel-default panel-filters">
-						<div class="panel-heading" data-toggle="collapse"
-							data-target=".panel-filters .collapse" aria-expanded="false">
-							<h4 class="panel-title">
-								<span class="glyphicon glyphicon-filter"></span> Filters
-							</h4>
-						</div>
-						<div class="panel-collapse collapse" data-parent="#accordion">
-							<ul class="panel-body nav nav-pills nav-stacked">
-								<li role="presentation"><a href="/filter/myentries"> <span
-										class="glyphicon glyphicon-folder-open"></span> <span
-										class="glyphicon glyphicon-globe pull-right"
-										title="Global filter: filters all issues"></span> My Entries
-								</a></li>
-								<li role="presentation"><a href="/filter/favourites"> <span
-										class="glyphicon glyphicon-star"></span> <span
-										class="glyphicon glyphicon-globe pull-right"
-										title="Global filter: filters all issues"></span> My
-										Favourites
-								</a></li>
-								<li role="presentation"><a href="?filter=unseen"> <span
-										class="glyphicon glyphicon-eye-close"></span> <span
-										class="glyphicon glyphicon-list pull-right"
-										title="Section filter: filters inside current section"></span>
-										Unseen Entries
-								</a></li>
-								<li role="presentation"><a href="?filter=archived"> <span
-										class="glyphicon glyphicon-folder-close"></span> <span
-										class="glyphicon glyphicon-list pull-right"
-										title="Section filter: filters inside current section"></span>
-										Archived Entries
-								</a></li>
-							</ul>
-						</div>
-					</div>
-					<div class="panel panel-default panel-favourite">
-						<div class="panel-heading" data-toggle="collapse"
-							data-target=".panel-favourite .collapse" aria-expanded="false">
-							<h4 class="panel-title">
-								<span class="glyphicon glyphicon-star a-favourite"></span>
-								Favourites
-							</h4>
-						</div>
-						<div class="panel-collapse collapse" data-parent="#accordion">
-							<div class="panel-body">
-								<ul class="list-unstyled" id="sidebar-favourites">
-								</ul>
-							</div>
-						</div>
-					</div>
-				</div>
-			</div>
-			<div class="col-md-8 col-sm-9 col-xs-12">
-				<div id="issue_placeholder_top"></div>
-				<form method="POST" action="/issue_upload?issue=1936">
-					<div class="panel panel-primary panel_issue" style="display: block"
-						data-issue="1936" data-archived="1" data-active-version="32"
-						data-issue-valid-to="Wednesday, 13 Apr 2016 11:57:38 CEST"
-						data-issue-color="red">
-						<div class="panel-heading issueDesc collapsed"
-							title="Double click to edit entry" data-toggle="collapse"
-							data-target="#1936">
-							<h3 class="panel-title">
-								<span class="chevron_toggle glyphicon glyphicon-chevron-up"></span>
-								<a href="#!" class="favourite"> <span
-									class="glyphicon glyphicon-star-empty text-sapgold"></span>
-								</a> <span class="issue_color_bubble"></span> <span
-									class="glyphicon glyphicon-calendar"
-									title="will be archived on Wednesday, 13 Apr 2016 11:57:38 CEST"></span>
-								<a class="issueLink 1" href="/Issue/1936">#1936</a> <span
-									class="issue_header Description">1356</span> <span
-									class="LastEditBlock pull-right"> <span
-									class="LastEditName">Abdul Kader Rai</span> on <span
-									class="LastEditDate">Monday, 11 Apr 2016 11:57:38 CEST</span>
-								</span>
-							</h3>
-						</div>
-						<div id="1936" class="panel-collapse desc_id collapse "
-							aria-expanded="false">
-							<p class="archive-date-msg pull-right">
-								will be archived on <span class="archive-date">Wednesday,
-									13 Apr 2016 11:57:38 CEST</span>&nbsp;&nbsp;&nbsp;&nbsp;
-							</p>
-							<div class="panel-body" title="Double click to edit entry">
-								<div class="well Content" style="word-wrap: break-word;"
-									contenteditable="false">
-									<p>8003135817</p>
-									<p>&nbsp;</p>
-									<p>&nbsp;</p>
-									<p>&nbsp;</p>
-								</div>
-								<div class="FooterButtons pull-right" style="display: none">
-									<input type="button" class="btn btn-warning SaveIssue"
-										name="Save" value="Save"> <input type="button"
-										class="btn btn-default CancelIssue" name="Cancel"
-										value="Cancel"> <label for="upload1936"
-										class="btn btn-default issue_uploading">Attach file</label> <input
-										id="upload1936" type="file" class="issue_upload" name="upload" />
-									<div class="btn-group">
-										<button type="button" class="btn btn-default dropdown-toggle"
-											data-toggle="dropdown" aria-haspopup="true"
-											aria-expanded="false">
-											Set Color <span class="caret"></span>
-										</button>
-										<ul class="dropdown-menu color-chooser">
-											<li data-issue-color="green"><a href="#!"><span
-													class="issue_color_bubble"></span> Green</a></li>
-											<li data-issue-color="yellow"><a href="#!"><span
-													class="issue_color_bubble"></span> Yellow</a></li>
-											<li data-issue-color="red"><a href="#!"><span
-													class="issue_color_bubble"></span> Red</a></li>
-											<li data-issue-color="null"><a href="#!">Default</a></li>
-										</ul>
-									</div>
-									<input type="button" class="btn btn-success ReopenIssue"
-										name="Reopen" value="Reopen">
-									<div class="btn-group">
-										<button type="button"
-											class="btn btn-danger dropdown-toggle ArchiveIssue"
-											data-toggle="dropdown" aria-haspopup="true"
-											aria-expanded="false" name="Archive">
-											Archive <span class="caret"></span> <span class="sr-only">Toggle
-												Dropdown</span>
-										</button>
-										<ul class="dropdown-menu archive-period-chooser">
-											<li data-archive-period="0"><a href="#!">Archive Now</a></li>
-											<li data-archive-period="10"><a href="#!">Archive in
-													10 hours</a></li>
-											<li data-archive-period="24"><a href="#!">Archive in
-													24 hours</a></li>
-											<li data-archive-period="48"><a href="#!">Archive in
-													48 hours</a></li>
-											<li data-archive-period="72"><a href="#!">Archive in
-													72 hours</a></li>
-										</ul>
-									</div>
-								</div>
-								<div style="display: none;" class="Sections">
-									<label class="checkbox-pull-right"><input
-										type="checkbox" name="issue_sections[]" value="1" checked
-										class="Section">SM/DB </label>&nbsp;
-								</div>
-								<div class="issue_files" style="display: none;">
-									<b>Attachments</b>
-								</div>
-							</div>
-							<div class="Comment_startpoint">
-								<a data-toggle="collapse"
-									data-target="[data-issue=1936] .comment-area"
-									aria-expanded="false"><span
-									class="glyphicon glyphicon-collapse-up"></span><span class=\"count_comments\">No</span>
-									comments</a> <a class="hidden-print"
-									style="text-align: left; margin-bottom: 5px;" href="#"><span
-									class="octicon octicon-comment"></span>&nbsp;New Comment</a> <a
-									href="/Issue/1936#comment-area"><span
-									class="octicon octicon-history"></span> 33 versions</a>
-							</div>
-							<div class="comment-area collapse "></div>
-							<div class="panel-footer">
-								<div class="col-sm-13 NewComment" style="display: none">
-									<textarea class="textareaNoResize form-control" name="Comment"
-										placeholder="Write a comment..."></textarea>
-									<input type="button" class="btn btn-xs btn-warning"
-										value="Save Comment">
-								</div>
-							</div>
-						</div>
-					</div>
-				</form>
-				<div id="issue_placeholder_bottom"></div>
-			</div>
-		</div>
-	</div>
+
 	<script src="jquery-1.11.0.min.js"></script>
 	<script src="jquery.form.js"></script>
 	<script src="bootstrap.min.js"></script>
