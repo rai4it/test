@@ -366,7 +366,11 @@ input[type="file"][name="upload"]{
 }
 
 /* Archive/Reopen buttons visibility depending on the issue state */
-[data-archived="1"] .ArchiveIssue { display: none; }
+.ArchiveIssue { display: none; }
+.panel_issue[data-issue-valid-to]:not([data-issue-valid-to="never"])
+.ArchiveIssue {
+	display: initial; 
+}
 [data-archived="0"] .ArchiveIssue { display: initial; }
 [data-archived="1"] .ReopenIssue  { display: initial; }
 [data-archived="0"] .ReopenIssue  { display: none; }
@@ -420,6 +424,11 @@ a.favourite:active {
 	margin-bottom: 5px;
 	padding-left: 15px;
 	padding-right: 15px;
+}
+
+/* hide comment area links for issues that have never been saved. */
+[data-issue="-1"] .Comment_startpoint {
+	display: none;
 }
 
 .filter-sid {
@@ -503,4 +512,53 @@ ul#dynamic-menu li.active >a {
     .intro-divider {
         width: 100%;
     }
+}
+
+/* Color Categories 272 */
+.issue_color_bubble {
+    border-radius: 30px;
+    width:15px;
+    height:15px;
+}
+
+[data-issue-color="red"] .issue_color_bubble,
+.version[data-issue-color="red"] .issue_color_bubble,
+.color-chooser>li[data-issue-color="red"] .issue_color_bubble {
+	background-color: #e35500;
+	display: inline-block;
+}
+
+[data-issue-color="yellow"] .issue_color_bubble,
+.version[data-issue-color="yellow"] .issue_color_bubble,
+.color-chooser>li[data-issue-color="yellow"] .issue_color_bubble {
+	background-color: #f0ab00;
+	display: inline-block;
+}
+
+[data-issue-color="green"] .issue_color_bubble,
+.version[data-issue-color="green"] .issue_color_bubble,
+.color-chooser>li[data-issue-color="green"] .issue_color_bubble {
+	background-color: #4fb81c;
+	display: inline-block;
+}
+
+.version:not([data-issue-color]) .issue_color_bubble,
+.color-chooser>li:not([data-issue-color]) .issue_color_bubble {
+	display:none;
+}
+
+/* automatically_archive_#304 */
+.glyphicon-calendar[title*="never"] {
+	display: none;
+}
+
+.archive-date-msg
+{
+	display: none;
+}
+
+[data-issue-valid-to]:not([data-issue-valid-to="never"]) .desc_id>.archive-date-msg,
+.version[data-issue-valid-to]:not([data-issue-valid-to="never"]) .archive-date-msg
+{
+	display: initial;
 }
