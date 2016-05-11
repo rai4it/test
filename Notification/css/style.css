@@ -1,0 +1,147 @@
+html, body {
+    height: 100%;
+    /* The html and body elements cannot have any padding or margin. */
+}
+
+/*SAP Gold Linie */
+.linie {
+    border :none;
+    border-top: 10px solid #F0AB00;
+    background-color:#F0AB00;
+    height: 0px;
+    margin: -20px 0px 0px 0px;
+    width: 100%;
+}
+/* Runde Ecken Navbar entfernen */
+.navbar {
+    border-radius: 0 !important;
+    -moz-border-radius: 0 !important;
+}
+
+
+@media (max-width: 1200px) {
+    .navbar-header {
+        float: none;
+    }
+    .navbar-left,.navbar-right {
+        float: none !important;
+    }
+    .navbar-toggle {
+        display: block;
+    }
+    .navbar-collapse {
+        border-top: 1px solid transparent;
+        box-shadow: inset 0 1px 0 rgba(255,255,255,0.1);
+    }
+    .navbar-fixed-top {
+        top: 0;
+        border-width: 0 0 1px;
+    }
+    .navbar-collapse.collapse {
+        display: none!important;
+    }
+    .navbar-nav {
+        margin-top: 7.5px;
+    }
+    .yescollapse>li {
+        float: none;
+    }
+    .nocollapse>li {
+    float: left;
+    }
+    .navbar-nav>li>a {
+        padding-top: 10px;
+        padding-bottom: 10px;
+    }
+    .collapse.in{
+        display:block !important;
+    }
+}
+
+/* remove empty space between IE8 alert and navbar */
+.unsupport {
+    margin: 0px;
+}
+
+/* Set the fixed height of the footer here */
+#footer {
+    height: 70px;
+    width: 100%;
+}
+#footer p {
+    margin: 20px 0;
+}
+
+.col-md-12.panel {
+    padding-left:0;
+    padding-right:0;
+}
+h2.panel-heading {
+    margin-top:0;
+    margin-bottom:0;
+}
+
+/********************************/
+/* customized bootstrap classes */
+
+    
+/*panel bootstrap style */
+/*sap color grey*/
+.panel-unseen{border-color:#666666;}
+.panel-unseen>.panel-heading{color:#ffffff;background-color:#CCCCCC;border-color:#666666;}
+.panel-unseen>.panel-heading+.panel-collapse .panel-body{border-top-color:#A4A4A4;}
+
+/*sap color grey*/
+.panel-seen{border-color:#666666;}
+.panel-seen>.panel-heading{color:#ffffff;background-color:#666666;border-color:#666666;}
+.panel-seen>.panel-heading+.panel-collapse .panel-body{border-top-color:#428bca;}
+.panel-seen>.panel-footer+.panel-collapse .panel-body{border-bottom-color:#428bca;}
+
+.panel-default{border-color:#dddddd;}.panel-default>.panel-heading{color:#333333;background-color:#f5f5f5;border-color:#dddddd;}.panel-default>.panel-heading+.panel-collapse .panel-body{border-top-color:#dddddd;}
+/*SAP color grey*/
+.panel-primary{border-color:#666666;}.panel-primary>.panel-heading{color:#ffffff;background-color:#666666;border-color:#666666;}.panel-primary>.panel-heading+.panel-collapse .panel-body{border-top-color:#428bca;}
+.panel-success{border-color:#d6e9c6;}.panel-success>.panel-heading{color:#468847;background-color:#dff0d8;border-color:#d6e9c6;}.panel-success>.panel-heading+.panel-collapse .panel-body{border-top-color:#d6e9c6;}
+.panel-title{margin-top:0;margin-bottom:0;font-size:16px;}.panel-title>a{color:inherit;}
+.panel-footer{padding:10px 15px;background-color:#f5f5f5;border-top:1px solid #dddddd;border-bottom-right-radius:3px;border-bottom-left-radius:3px;}
+
+/*btn bootstrap */
+
+/*sap color gold*/
+.btn-warning{color:#ffffff;background-color:#f0ab00;border-color:#eea236;}.btn-warning:hover,.btn-warning:focus,.btn-warning:active,.btn-warning.active,.open .dropdown-toggle.btn-warning{color:#ffffff;background-color:#ed9c28;border-color:#d58512;}
+
+.btn-primary{color:#ffffff;background-color:#008fd3;border-color:#357ebd;}.btn-primary:hover,.btn-primary:focus,.btn-primary:active,.btn-primary.active,.open .dropdown-toggle.btn-primary{color:#ffffff;background-color:#0076cb;border-color:#285e8e;}
+/*sap color red*/
+.btn-danger{color:#ffffff;background-color:#e35500;border-color:#d43f3a;}.btn-danger:hover,.btn-danger:focus,.btn-danger:active,.btn-danger.active,.open .dropdown-toggle.btn-danger{color:#ffffff;background-color:#bc3618;border-color:#ac2925;}
+/*sap color green*/
+.btn-success{color:#ffffff;background-color:#4fb81c;border-color:#4cae4c;}.btn-success:hover,.btn-success:focus,.btn-success:active,.btn-success.active,.open .dropdown-toggle.btn-success{color:#ffffff;background-color:#247230;border-color:#398439;}
+
+.btn-lg{padding:10px 16px;font-size:18px;line-height:1.33;border-radius:6px;}
+.btn-sm,.btn-xs{padding:5px 10px;font-size:12px;line-height:1.5;border-radius:3px;}
+
+/*label bootrstrap*/
+
+/*sap color grey*/
+.label-default{background-color:#999999;}.label-default[href]:hover,.label-default[href]:focus{background-color:#808080;}
+
+.label-primary{background-color:#428bca;}.label-primary[href]:hover,.label-primary[href]:focus{background-color:#3071a9;}
+/*sap color green*/
+.label-success{background-color:#4fb81c;}.label-success[href]:hover,.label-success[href]:focus{background-color:#449d44;}
+.label-info{background-color:#5bc0de;}.label-info[href]:hover,.label-info[href]:focus{background-color:#31b0d5;}
+.label-warning{background-color:#f0ad4e;}.label-warning[href]:hover,.label-warning[href]:focus{background-color:#ec971f;}
+.label-danger{background-color:#d9534f;}.label-danger[href]:hover,.label-danger[href]:focus{background-color:#c9302c;}
+
+/*alert bootstrap*/
+
+.alert-success{background-color:#dff0d8;border-color:#d6e9c6;color:#468847;}.alert-success hr{border-top-color:#c9e2b3;}
+.alert-success .alert-link{color:#356635;}
+.alert-info{background-color:#d9edf7;border-color:#bce8f1;color:#3a87ad;}.alert-info hr{border-top-color:#a6e1ec;}
+.alert-info .alert-link{color:#2d6987;}
+/*sap color gold*/
+.alert-warning{background-color:#f0ab00;border-color:#fbeed5;color:#ffffff;}.alert-warning hr{border-top-color:#f8e5be;}
+
+.alert-warning .alert-link{color:#a47e3c;}
+.alert-danger{background-color:#f2dede;border-color:#eed3d7;color:#b94a48;}.alert-danger hr{border-top-color:#e6c1c7;}
+.alert-danger .alert-link{color:#953b39;}
+
+/*END BOOTSTRAP*/
+/***************/

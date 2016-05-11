@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html>
+<head>
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+
+	<title>itdtimer - ITDirect autorefresh</title>
+
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+
+	<link rel="icon" type="image/png" href="sap.png">
+	<script src="js/jquery-1.11.0.min.js"></script>
+	<script src="js/jquery.form.js"></script>
+	<script src="js/autosize/jquery.autosize.min.js"></script>
+	<script src="js/jquery-dateFormat.min.js"></script>
+
+	<!-- Bootstrap CSS file -->
+	<link href="css/bootstrap.min.css" rel="stylesheet" media="screen">
+
+	<!-- local styles-->
+	<link href="css/style.css" rel="stylesheet">
+</head>
+<body>
+<div id="autocollapse" class="navbar navbar-default navbar-inverse" role="navigation">
+	<div class="container">
+		<div class="navbar-header">
+			<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+				<span class="sr-only">Toggle navigation</span>
+				<span class="icon-bar"></span>
+				<span class="icon-bar"></span>
+				<span class="icon-bar"></span>
+			</button>
+			<span class="navbar-brand"><img src="sap.png" width="52" height="26">&nbsp; ITDtimer</span>
+		</div>
+		<div id="navbar" class="collapse navbar-collapse">
+			<ul class="nav navbar-nav">
+				<li><a href="#inst">Installation</a></li>
+				<li><a href="#how">How it works</a></li>
+				<li><a href="#limits">Limitations</a></li>
+				<li><a href="#trouble">Troubleshooting</a></li>
+			</ul>
+		</div>
+	</div>
+</div>
+<hr class="linie">
+
+<div class="container">
+
+<div class="col-md-12">
+	<h1>ITdirect auto-refresh <small>for ticket searches for Google Chrome</small></h1>
+</div>
+
+<div class="col-md-12">
+	<h2 id="inst">Installation</h2>
+
+		<p>
+		Drag this bookmarklet into your Google Chrome bookmark bar 
+		(show with Ctrl+Shift+B):
+		<a class="btn btn-primary" href="javascript:(function(){var jsCode=document.createElement('script');jsCode.setAttribute('type','text/javascript');jsCode.setAttribute('src','https://github.wdf.sap.corp/pages/SCB-PS-SMDB/itdtimer/itd_timer.js');document.body.appendChild(jsCode);}());">
+			ITd Timer
+		</a>
+	</p>
+	<p>
+		Open 
+		<a href="https://itdirect.wdf.sap.corp/sap/bc/bsp/sap/crm_ui_start/default.htm?sap-language=en">
+			<button type="button" class="btn btn-primary">ITdirect </button>
+		</a>
+		and click the bookmarklet when you are in Home or Inbox. <br>
+		You can enter the refresh time (5 mins is default and should be 
+		sufficient) and decide if you want to get desktop notifications.
+	</p>
+</div>
+
+
+<div class="col-md-12">
+	<h2 id="how">How does it work</h2>
+	<p> The script will simulate the user clicking on the "Go" button. It
+	will than wait 5 seconds for the search to complete and try counting
+	all lines. </p>
+	<p> It is designed to ignore lines containing a processor, as well as
+	the lines containing <code>[W]</code>,<code>[w]</code>,<code>[T]</code>
+	or <code>[t]</code>. </p>
+	<p> Requirements: <br>ITdirect Language -> English <br> Columns: Description, Processor (optional: Priority (Description), Category, System ID)</p>
+</div>
+
+<div class="col-md-12 panel panel-danger">
+	<h2 id="warning" class="panel-heading">Warnings</h2>
+	<div class="panel-body">
+		<p>
+		As the script is only simulating user-input blindly it can get
+		confused. But the developers have taken every reasonable
+		measure known to no cause problems.
+		</p>
+
+		<p>
+		This script is also neither developed nor endorsed by the
+		ITdirect developers, and not guaranteed to be in sync with
+		their developments. Expect it to break.
+		</p>
+	</div>
+</div>
+
+<div class="col-md-12">
+	<h2 id="limits">Known limitiations:</h2>
+	<ul>
+		<li>	The script won't hit the Go button if a ticket is
+			displayed/opened. Please use another browser windows
+			for actually working on tickets.
+		</li>
+		<li>	As not all tickets are shown at once in paged result
+			lists ITDtimer does not support them - please use scrolling
+			instead.
+		</li>
+		<li>	If the search takes longer than 5 seconds the icon will
+			not get updated. If this value hits your search please
+			check if you can reduce the search time or give us a
+			shoutout, so we can bump the waiting time.
+		</li>
+	</ul>
+</div>
+
+<div class="col-md-12">
+	<h2 id="trouble">Troubleshooting:</h2>
+
+	<p>	If the search lasts longer than 5 seconds please try reducing your
+		search's complexity. You can also try executing the first search
+		manually before activating ITDtimer.
+	</p>
+	<p>	The 5 seconds have been proven as enough for our team, if it is
+		not usable for you please notify us, so we can adjust this
+		upwards.
+	</p>
+	<p>	If ITDtimer stops working please try reloading the page and 
+		restart the script.
+	</p>
+</div>
+
+</div> <!-- #wrap -->
+
+<div id="footer">
+	<hr class="linie" style="margin:0;margin-top:20px;border-top: 2px solid #F0AB00;">
+	<div class="container">
+		<p class="text-muted credit">
+			&copy; itdtimer 2014 by PS SM/DB
+			<a href="https://github.wdf.sap.corp/SCB-PS-SMDB/itdtimer/">fork me on github</a>
+			<span style="float:right;">
+				contact: <a href="mailto:maximilian.lendrich@sap.com">D063496</a>
+			</span>
+		</p>
+	</div>
+</div>
+
+<script src="js/bootstrap.min.js"></script>
+
+</body>
+</html>

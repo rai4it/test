@@ -274,12 +274,12 @@ function ResetEditIssue(event, cancel) {
 	issue.find(".chevron_toggle").show();
 	issue.find(".glyphicon-pencil").remove();
 	if (cancel) {
-		LoadEntryData(event,cancel);
+		LoadEntryData(event, cancel);
 	}
 }
-function LoadEntryData(event,cancel) {
-	if(!cancel)
-		$(event.currentTarget).remove();	
+function LoadEntryData(event, cancel) {
+	if (!cancel)
+		$(event.currentTarget).remove();
 	var issue = $(event.currentTarget).closest('[data-issue]');
 	var version = $(event.currentTarget).attr('data-version');
 	$.ajax({
@@ -483,15 +483,11 @@ function PointChevronUp() {
 }
 
 function PointCollapseDown(event) {
-	$(this).parent().find(".glyphicon-collapse-up").removeClass(
-			"glyphicon-collapse-up").addClass("glyphicon-collapse-down");
 	event.stopPropagation();
-}
-
-function PointCollapseUp(event) {
-	$(this).parent().find(".glyphicon-collapse-down").removeClass(
-			"glyphicon-collapse-down").addClass("glyphicon-collapse-up");
-	event.stopPropagation();
+	var issue = $(event.currentTarget).closest("div[data-issue]");
+	var link = issue.find("a[data-target]");
+	var dataTarget = parseInt(link.attr("data-target").split(".comments")[1]) + 1;
+	link.attr("data-target", "[data-issue=1935] .comments" + dataTarget);
 }
 
 function SaveFavourite(element) {
@@ -525,7 +521,8 @@ function DeleteFavourite(event) {
 }
 
 function ShowNewCommentBox(event) {
-	var issue = $(event.currentTarget).closest("[data-issue]");
+	var issue = $(event.currentTarget).closest("div[data-issue]");
+	var issueID = issue.attr("data-issue");
 	var newcommentbox = issue.find(".NewComment");
 	newcommentbox.show();
 	newcommentbox.find("textarea").focus();
@@ -541,7 +538,8 @@ function HideNewCommentBox(element) {
 
 function SaveComment(event) {
 	var comment = $(event.currentTarget).closest(".NewComment");
-	var issue = $(event.currentTarget).closest("[data-issue]").attr("data-issue");
+	var issue = $(event.currentTarget).closest("[data-issue]").attr(
+			"data-issue");
 	var comment_content = comment.find("textarea");
 
 	var arr = {
@@ -569,12 +567,13 @@ function SaveComment(event) {
 												+ '<div>'
 												+ msg.comment.ContentHtml
 												+ '</div>' + '</div>');
-						Text2Link($(event.currentTarget).closest("[data-issue]").find(
-								".comment_area_temp"));
+						Text2Link($(event.currentTarget)
+								.closest("[data-issue]").find(
+										".comment_area_temp"));
 						comment_content.val("");
 						HideNewCommentBox(event.currentTarget);
-						var count_comments = $(event.currentTarget).closest("[data-issue]")
-								.find(".count_comments").text();
+						var count_comments = $(event.currentTarget).closest(
+								"[data-issue]").find(".count_comments").text();
 						if (isNaN(count_comments)) {
 							count_comments = 1;
 						} else {
@@ -583,8 +582,8 @@ function SaveComment(event) {
 						$(event.currentTarget).closest("[data-issue]").find(
 								".count_comments").text(count_comments);
 					} else {
-						var comment_alert = $(event.currentTarget).closest("[data-issue]")
-								.find(".panel-footer");
+						var comment_alert = $(event.currentTarget).closest(
+								"[data-issue]").find(".panel-footer");
 						var new_alert = '<div class="alert alert-danger" role="alert"><span class="glyphicon glyphicon-exclamation-sign" aria-hidden="true"></span><span class="sr-only">Error:</span>Oops! Something went wrong.</div>';
 						var old_alert = comment_alert.find("div[role=alert]");
 						if (old_alert.length > 0) {
@@ -622,6 +621,81 @@ function ArchiveIssue() {
 	}
 }
 
+function notifyMe0() {
+	if (!Notification) {
+		// ie
+		alert('Desktop notifications not available in your browser. Try Chromium.');
+		return;
+	}
+	if (Notification.permission !== "granted") {
+		// chrome , opera
+		Notification.requestPermission();
+	} else {
+		// mozilla
+		var notification = new Notification(
+				'Notification title',
+				{
+					icon : 'http://cdn.sstatic.net/stackexchange/img/logos/so/so-icon.png',
+					body : "Hey there! You've been notified!",
+				});
+		notification.onclick = function() {
+			window.open("http://stackoverflow.com/a/13328397/1269037");
+		};
+	}
+}
+
+function notifyMe1() {
+	// Let's check if the browser supports notifications
+	if (!("Notification" in window)) {
+		alert("This browser does not support desktop notification");
+	}
+
+	// Let's check if the user is okay to get some notification
+	else if (Notification.permission === "granted") {
+		// If it's okay let's create a notification
+		var notification = new Notification("Hi there!");
+	}
+
+	// Otherwise, we need to ask the user for permission
+	// Note, Chrome does not implement the permission static property
+	// So we have to check for NOT 'denied' instead of 'default'
+	else if (Notification.permission !== 'denied') {
+		Notification.requestPermission(function(permission) {
+
+			// Whatever the user answers, we make sure we store the information
+			if (!('permission' in Notification)) {
+				Notification.permission = permission;
+			}
+
+			// If the user is okay, let's create a notification
+			if (permission === "granted") {
+				var notification = new Notification("Hi there!");
+			}
+		});
+	}
+
+	// At last, if the user already denied any notification, and you
+	// want to be respectful there is no need to bother him any more.
+}
+
+function notifyMe2() {
+	var notification = webkitNotifications.createNotification(
+			'http://cdn.sstatic.net/stackexchange/img/logos/so/so-icon.png',
+			'Hello!', 'Lorem ipsum...');
+	var notification = webkitNotifications
+			.createHTMLNotification('notification.html');
+	notification.show();
+}
+
+function notifyMe3() {
+	var opt = {
+		type : "basic",
+		title : "Primary Title",
+		message : "Primary message to display",
+	}
+	chrome.notifications.create("111", opt);
+}
+
 // code to execute once the DOM is loaded fully
 
 $(document).ready(
@@ -632,9 +706,8 @@ $(document).ready(
 					PointChevronDown).on('hide.bs.collapse',
 					'[data-issue] .panel-collapse', PointChevronUp)
 			// attach to each issue's collapsable comment area
-			.on('show.bs.collapse', '[data-issue] .comment-area',
-					PointCollapseDown).on('hide.bs.collapse',
-					'[data-issue] .comment-area', PointCollapseUp)
+			.on('show.bs.collapse', 'div[data-issue] .comment-area',
+					PointCollapseDown)
 			// attach color bubble button to color
 			.on('click', '.color-chooser li', SetIssueColor)
 			// attach reopen issue
@@ -651,32 +724,32 @@ $(document).ready(
 
 			.on('click', '.CancelIssue', CancelIssue)
 
-			.on('click', '.Comment_startpoint a', ShowNewCommentBox)
+			// .on('dblclick', '.issueDesc, .desc_id>.panel-body',
+			// EditIssue)//php code later
+			// .on('dblclick', '.issueDesc, .desc_id>.panel-body',
+			// EditDenied)//php code later
 
-			.on('click', '.NewComment input', SaveComment)
-			
-			//.on('dblclick', '.issueDesc, .desc_id>.panel-body', EditIssue)//php code later
-			//.on('dblclick', '.issueDesc, .desc_id>.panel-body', EditDenied)//php code later
-			
-			
-			
+			.on('click', '.new-comment-btn', ShowNewCommentBox)
 
-			
-			.on('click', 'a[data-version]', LoadEntryData)//php code later
-			
+			.on('click', 'a[data-version]', LoadEntryData)// php code later
+
 			.on('change', '.issue_upload', Issue_Upload)
-			
+
 			.on('click', '.DeleteFavourite', DeleteFavourite)
-						
-			.on('click', '.favourite .glyphicon', function(event) {
-				event.stopPropagation();
-				var star = $(this).closest("div[data-issue]")
-				.find(".favourite .glyphicon");
-				if (star.attr("class").indexOf("glyphicon-star-empty") > -1)
-					SaveFavourite(this);
-				else
-					DeleteFavourite(event);
-				})
+
+					.on(
+							'click',
+							'.favourite .glyphicon',
+							function(event) {
+								event.stopPropagation();
+								var star = $(this).closest("div[data-issue]")
+										.find(".favourite .glyphicon");
+								if (star.attr("class").indexOf(
+										"glyphicon-star-empty") > -1)
+									SaveFavourite(this);
+								else
+									DeleteFavourite(event);
+							})
 
 					// splite js from html
 
@@ -687,6 +760,11 @@ $(document).ready(
 							e.preventDefault();
 						}
 					});
+
+			document.addEventListener('DOMContentLoaded', function() {
+				if (Notification.permission !== "granted")
+					Notification.requestPermission();
+			});
 
 			if ($('body').data('infinite-scrolling')) {
 				$(document).scroll(
