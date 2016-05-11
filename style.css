@@ -415,7 +415,7 @@ a.favourite:active {
 
 /* comment / history */
 
-.comment-area > div {
+.comment-list > div {
 	padding: 10px 15px;
 	border-top: 1px dashed #eee;
 }
